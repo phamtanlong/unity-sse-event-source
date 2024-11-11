@@ -1,0 +1,14 @@
+{
+  "name": "com.phamtanlong.unity-sse-event-source",
+  "version": "0.1.0",
+  "displayName": "Unity SSE Event Source",
+  "description": "Unity SSE Event Source",
+  "keywords": [
+    "Unity SSE Event Source"
+  ],
+  "author": {
+    "name": "https://github.com/phamtanlong"
+  },
+  "dependencies": {
+  }
+}
