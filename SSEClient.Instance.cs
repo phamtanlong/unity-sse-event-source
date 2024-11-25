@@ -3,6 +3,8 @@ using UnityEngine;
 namespace UnitySseEventSource {
     public partial class SSEClient {
         private static SSEClient _instance;
+        
+        public static bool InstanceExists() => _instance != null;
 
         public static SSEClient instance {
             get {
