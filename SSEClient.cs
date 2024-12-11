@@ -24,18 +24,6 @@ namespace UnitySseEventSource {
 
         private UnityWebRequest request;
         private LogSseWithPooledBufferExampleDownloadHandler downloadHandler;
-        private void NextRetry()
-        {
-            switch (retryCount)
-            {
-                case 0: retry = 3; break;
-                case 1: retry = 6; break;
-                case 2: retry = 12; break;
-                case 3: retry = 24; break;
-                default: retry = 60; break;
-            }
-        }
-        private int retryCount;
         private float retry = 3; // seconds
         private string lastEventId = string.Empty;
 
@@ -73,10 +61,8 @@ namespace UnitySseEventSource {
                     or UnityWebRequest.Result.ProtocolError) {
                     Disconnected?.Invoke();
                     Debug.Log($"[SSE] Connection error (retry after {retry}s)\n" + request.error);
-                    retryCount++;
-                    NextRetry();
                     yield return new WaitForSeconds(retry);
-                    Debug.Log($"[SSE] Retry now");
+                    Debug.Log("[SSE] Retry now");
                 }
                 else {
                     yield return null;
